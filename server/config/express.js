@@ -17,7 +17,7 @@ module.exports = function(app, config) {
     app.use(morgan('dev')); // log every request to the console
     app.use(cookieParser());
     app.use(bodyParser.json());
-    app.use(session({secret: 'my node js template secret'}));
+    app.use(session({secret: 'my node js template secret',resave: true,saveUninitialized: true}));
     app.use(passport.initialize());
     app.use(passport.session());
     app.use(stylus.middleware({
